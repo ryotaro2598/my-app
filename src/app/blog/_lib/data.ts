@@ -48,3 +48,5 @@ export const posts = [
     tags: ["tag1", "tag2", "tag3"],
   },
 ];
+
+export type Post = (typeof posts)[number];
