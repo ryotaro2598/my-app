@@ -1,9 +1,18 @@
 import Image from "next/image";
 
-export default function Home() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const filters = await searchParams;
+
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+        <p className="mb-6 w-full rounded-lg border border-zinc-200 bg-zinc-100 px-3 py-2 font-mono text-xs text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300">
+          searchParams: {JSON.stringify(filters)}
+        </p>
         <Image
           className="dark:invert"
           src="/next.svg"
